@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define UNUSED(x) (x=x)
+#define UNUSED(x) (x = x)
 #define BUFF_SIZE 1024
 
 /* FLAGS */
