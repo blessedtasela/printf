@@ -48,7 +48,6 @@ int _printf(const char *format, ...)
 
 	print_buffer(buffer, &buffer_in);
 	va_end(list);
-
 	return (printed_char);
 }
 
