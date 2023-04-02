@@ -1,3 +1,0 @@
-### PRINT F ###
-*** FUNCTIONS TO PRINT ANYTHING ***
-
