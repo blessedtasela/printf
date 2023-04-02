@@ -83,7 +83,7 @@ int write_number(int is_negative, int ind, char buffer[], int flags,
  * @flags: calculate active flags
  * @width: get the width
  * @precision: precision specifier
- * @lenfth: number length
+ * @length: number length
  * @padd: padding char
  * @extra_ch: extra char
  * Return: number of printed chars
@@ -94,8 +94,7 @@ int write_num(int ind, char buffer[], int flags, int width,
 {
 	int i, padd_start = 1;
 
-	if (precision == 0 && ind == BUFF_SIZE - 2 &&
-	buffer[ind] == '0' && width == 0)
+if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0' && width == 0)
 	return (0);
 	if (precision == 0 && BUFF_SIZE - 2 && buffer[ind] == '0')
 	buffer[ind] = padd = ' ';
@@ -207,14 +206,12 @@ int write_pointer(char buffer[], int ind, int length, int width, int flags,
 	for (i = 3; i < width - length + 3; i++)
 	buffer[i] = padd;
 	buffer[i] = '\0';
-
 	if (flags & F_MINUS && padd == ' ')
 	{
 	buffer[--ind] = 'x';
 	buffer[--ind] = '0';
 	if (extra_ch)
 	buffer[--ind] = extra_ch;
-
 	return (write(1, &buffer[ind], length) + write(1, &buffer[3], i - 3));
 	}
 	else if (!(flags & F_MINUS) && padd == ' ')
@@ -223,7 +220,6 @@ int write_pointer(char buffer[], int ind, int length, int width, int flags,
 	buffer[--ind] = '0';
 	if (extra_ch)
 	buffer[--ind] = extra_ch;
-
 	return (write(1, &buffer[3], i - 3) + write(1, &buffer[ind], length));
 	}
 	else if (!(flags & F_MINUS) && padd == '0')
@@ -232,7 +228,6 @@ int write_pointer(char buffer[], int ind, int length, int width, int flags,
 	buffer[--padd_start] = extra_ch;
 	buffer[1] = '0';
 	buffer[2] = 'x';
-
 	return (write(1, &buffer[padd_start], i - padd_start) +
 		write(1, &buffer[ind], length - (1 - padd_start - 2)));
 	}
