@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	for (i = 0; format && format[i] != '0'; i++)
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
@@ -55,13 +55,13 @@ int _printf(const char *format, ...)
 /**
  * print_buffer - prints the contents of the buffer if not null
  * @buffer: array to be printed
- * @buffer_in: index at which add the next character, also represent the length
+ * @buff_ind: index at which add the next character, also represent the length
  */
 
-void print_buffer(char buffer[], int *buffer_in)
+void print_buffer(char buffer[], int *buff_ind)
 {
-	if (*buffer_in > 0)
-		write(1, &buffer[0], *buffer_in);
-	*buffer_in = 0;
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+	*buff_ind = 0;
 }
 
